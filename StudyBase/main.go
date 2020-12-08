@@ -10,6 +10,7 @@ import (
 
 func main() {
 	_ = 1
+	_ = 2
 	a := []int{1, 3, 5, 7, 8}
 	rr := twoSum(a, 8)
 	fmt.Println(rr, len(rr), cap(rr))
