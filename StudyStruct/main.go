@@ -17,6 +17,5 @@ func main() {
 	type foo struct {
 		id int
 	}
-	_ = foo{id: 1}
 
 }
