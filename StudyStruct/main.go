@@ -13,10 +13,5 @@ type rune int32
 
 func main() {
 	xiaoming := Student{id: 1, name: "xiaoming"}
-	xiaohong := Student{id: 2, name: "xiaohong"}
-	fmt.Printf("%#v,%#v", xiaoming, xiaohong)
-	type foo struct {
-		id int
-	}
-
+	fmt.Printf("%#v", xiaoming)
 }
