@@ -56,8 +56,12 @@ func main() {
 
 	memoryAlign()
 	problem()
+	// foo.go
 	structConstructor()
 	structMethod()
+	// bar.go
+	nestedAnonymousStruct()
+	inherit()
 }
 
 
