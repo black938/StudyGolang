@@ -1,1 +1,1 @@
-package StudyInterface
+package main
