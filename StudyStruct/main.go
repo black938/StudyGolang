@@ -109,10 +109,18 @@ func problem() {
 		{name: "娜扎", age: 23},
 		{name: "大王八", age: 9000},
 	}
-
+	// 因为for range创建了每个元素的副本，而不是直接返回每个元素的引用
+	// 只使用一块内存进行for range循环
 	for _, stu := range stus {
-		m[stu.name] = &stu
+		temp:=stu
+		m[stu.name] = &temp
 	}
+
+	//如果这么操作那么就会让最后的name全都指向大王八
+	//for _, stu := range stus {
+	//	m[stu.name] = &stu
+	//}
+
 	for k, v := range m {
 		fmt.Println(k, "=>", v.name)
 	}
