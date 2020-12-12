@@ -7,8 +7,8 @@ import (
 
 type NewInt int  // type of it: main.MyInt 重新整了一个
 type MyInt = int // type of it: int 起别名 并没有起新类型
-type byte uint8
-type rune int32
+//type byte uint8
+//type rune int32
 
 type Person struct {
 	age        int
@@ -19,6 +19,22 @@ func NewPerson(age int, name string, city string) *Person {
 	return &Person{age: age, name: name, city: city}
 }
 func main() {
+	base()
+	memoryAlign()
+	problem()
+	// foo.go
+	structConstructor()
+	structMethod()
+	// bar.go
+	nestedAnonymousStruct()
+	inherit()
+	setSliceMap2Struct()
+	//json.go
+	tryJSON()
+
+}
+
+func base() {
 	//基本实例化
 	var p1 Person
 	p1.name = "WangSir"
@@ -49,21 +65,12 @@ func main() {
 		name: "wangdachui",
 		city: "maanshan",
 	}
-	fmt.Println("%#v",p5)
+	fmt.Println("%#v", p5)
 	//值的列表初始化
-	p6:=Person{21,"wangxiaochui","nanjing"}
-	fmt.Println("%#v",p6)
+	p6 := Person{21, "wangxiaochui", "nanjing"}
+	fmt.Println("%#v", p6)
 
-	memoryAlign()
-	problem()
-	// foo.go
-	structConstructor()
-	structMethod()
-	// bar.go
-	nestedAnonymousStruct()
-	inherit()
 }
-
 
 func memoryAlign() {
 	//进阶 体会内存对齐带来的影响 https://segmentfault.com/a/1190000017527311
@@ -90,7 +97,7 @@ func memoryAlign() {
 	fmt.Printf("part2 size: %d, align: %d\n", unsafe.Sizeof(part2), unsafe.Alignof(part2))
 }
 
-func problem()  {
+func problem() {
 	// 一道面试题 求输出 https://studygolang.com/articles/9701
 	type student struct {
 		name string
