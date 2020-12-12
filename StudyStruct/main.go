@@ -58,7 +58,6 @@ func main() {
 	problem()
 	structConstructor()
 	structMethod()
-	structMethod()
 }
 
 
