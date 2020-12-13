@@ -1,1 +1,1 @@
-package StudyUintTest
+package main
