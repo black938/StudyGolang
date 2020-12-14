@@ -1,1 +1,5 @@
-package StudyGin
+package main
+
+func main2() {
+
+}
