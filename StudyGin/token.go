@@ -24,6 +24,7 @@ func main() {
 	r.GET("/test",helloHandler,hello2Handler)
 	r.POST("/auth", authHandler)
 	r.GET("/home", JWTAuthMiddleware(), homeHandler)
+	r.GET("/rr",homeHandler,hello2Handler)
 	r.Run(":8080")
 }
 
@@ -31,6 +32,7 @@ func helloHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"msg": "hello",
 	})
+	c.Abort()
 }
 
 func hello2Handler(c *gin.Context) {
@@ -121,11 +123,11 @@ func JWTAuthMiddleware() func(c *gin.Context) {
 		// 这里的具体实现方式要依据你的实际业务情况决定
 		authHeader := c.Request.Header.Get("Authorization")
 		if authHeader == "" {
-			c.JSON(http.StatusOK, gin.H{
-				"code": 2003,
-				"msg":  "请求头中auth为空",
-			})
-			c.Abort()
+			//c.JSON(http.StatusOK, gin.H{
+			//	"code": 2003,
+			//	"msg":  "请求头中auth为空",
+			//})
+			c.AbortWithStatusJSON(999,gin.H{"msg":"fuck abort","data":"no data"})
 			return
 		}
 		// 按空格分割
